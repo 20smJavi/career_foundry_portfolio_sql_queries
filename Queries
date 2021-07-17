@@ -145,7 +145,7 @@ WITH payment_country_cte AS
 		LIMIT 5)
 
 SELECT  D.country,
-	COUNT(A.customer_id) AS all_customer_count,
+	COUNT(DISTINCT A.customer_id) AS all_customer_count,
 	COUNT(DISTINCT payment_country_cte.customer_id) AS top_customer_count
 FROM customer A
 INNER JOIN address B	ON A.address_id = B.address_id
@@ -158,7 +158,7 @@ ORDER  BY top_customer_count DESC
 
 #Finding revenue based off of geographic location
 SELECT	country,
-	COUNT(A.customer_id) AS customer_count,
+	COUNT(DISTINCT A.customer_id) AS customer_count,
 	SUM(amount) AS total_payment
 FROM customer A
 INNER JOIN address B	ON A.address_id = B.address_id
