@@ -80,7 +80,7 @@ GROUP BY A.customer_id, C.city
 ORDER BY total_amount_paid DESC
 LIMIT 5
 
-#Calculating average amount piad in top 10 cities whie utilizing existing code via subquery
+#Calculating average amount paid in top 10 cities whie utilizing existing code via subquery
 SELECT AVG(total_amount_paid) AS average_amount_paid
 FROM (SELECT  A.customer_id,
               A.first_name,
